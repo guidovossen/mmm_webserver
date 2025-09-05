@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<title>Haarstylist dame</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A5;
+    margin: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  @media print {
+    * {
+      box-sizing: border-box !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body { margin: 0 !important; padding: 0 !important; }
+    html { margin: 0 !important; padding: 0 !important; }
+    .page {
+      page-break-after: always !important;
+      page-break-inside: avoid !important;
+      break-after: page !important;
+      break-inside: avoid !important;
+      margin: 0 !important;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { font-family: 'Inter', Helvetica, Arial, sans-serif; color:#000; margin: 0; padding: 0; }
+  .page {
+    page-break-after: always;
+    page-break-inside: avoid;
+    width: 148mm;
+    height: 210mm;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+  .page:last-child {
+    page-break-after: avoid;
+  }
+  .p1 {
+    background:#c2b723; /* Groen-geel passend bij haarstylist creatief beroep */
+    color:#fff;
+    height: 210mm;
+    width: 148mm;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0.5mm 6mm 6mm 6mm;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header"
+      "cover"
+      "title";
+    gap: 5mm;
+    margin: 0;
+  }
+  .header {
+    grid-area: header;
+    text-align: center;
+    align-self: start;
+  }
+  .logo {
+    height: 180pt;
+    width: auto;
+    max-width: 136mm;
+    margin: -5mm 0 0 0;
+    display: block;
+    filter: invert(1);
+  }
+  .dept {
+    font-family: 'Inter', sans-serif;
+    font-weight:900;
+    font-size:30pt;
+    margin-top:0.5mm;
+    letter-spacing:0.8pt;
+    line-height: 0.85;
+    max-width: 136mm; /* Matches Talland width constraint */
+    word-wrap: break-word;
+    hyphens: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+  }
+  .cover {
+    grid-area: cover;
+    position: relative;
+    background: #c2b723; /* Match page background instead of white */
+    overflow: hidden;
+    align-self: center;
+    min-height: 80mm;
+  }
+ 
+  .top-image, .middle-image, .lowest-image {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+ 
+  /* Portrait image - taller than wide (75mm x 140mm) */
+  .top-image {
+    width: 75mm;
+    height: 140mm;
+    top: -15mm;
+    left: 5mm;
+    z-index: 3;
+  }
+ 
+  /* Square image - equal width and height (50mm x 50mm) */
+  .middle-image {
+    width: 50mm;
+    height: 50mm;
+    top: 20mm;
+    left: 55mm;
+    z-index: 2;
+  }
+ 
+  /* Landscape image - wider than tall (70mm x 40mm) */
+  .lowest-image {
+    width: 70mm;
+    height: 40mm;
+    top: 25mm;
+    left: 65mm;
+    z-index: 1;
+  }
+ 
+  .cover img { width:100%; height:100%; object-fit:cover; }
+ 
+  /* Single image fallback */
+  .cover.single-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .title {
+    grid-area: title;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 32pt;
+    font-weight: 900;
+    line-height: 0.95;
+    align-self: start;
+    margin: 0;
+    letter-spacing: -0.8pt;
+    padding: 0 2mm;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* PAGE 2 */
+  .p2 {
+    background:#fff;
+    color:#000;
+    padding: 6mm;
+    height: 210mm;
+    width: 148mm;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    page-break-after: avoid;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto 1fr auto auto;
+    grid-template-areas:
+      "header-left header-right"
+      "title title"
+      "description description"
+      "content-left content-right"
+      "cta cta"
+      "footer footer";
+    gap: 2.5mm;
+    margin: 0;
+  }
+ 
+  .header-info {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-column: 1 / -1;
+    margin-bottom: 3mm;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    color: #c2b723;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    min-height: 15pt;
+    max-height: 15pt;
+    position: relative;
+    z-index: 10;
+  }
+ 
+  .header-left {
+    justify-self: start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 12pt !important;
+    line-height: 1 !important;
+  }
+  .header-center {
+    justify-self: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 2mm;
+    flex-shrink: 0;
+    font-size: 12pt !important;
+    line-height: 1 !important;
+  }
+  .header-right {
+    justify-self: end;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 12pt !important;
+    line-height: 1 !important;
+  }
+ 
+  .main-title {
+    grid-area: title;
+    color:#c2b723;
+    font-family: 'Inter', sans-serif;
+    font-size:18pt;
+    font-weight:700;
+    margin:0 0 3mm;
+    line-height: 1.1;
+    text-align: center;
+  }
+ 
+  .main-description {
+    grid-area: description;
+    font-family: 'Inter', sans-serif;
+    font-size:10pt;
+    font-weight:400;
+    line-height:1.2;
+    margin-bottom:2mm;
+    overflow: hidden;
+  }
+ 
+  .main-description p { margin: 0 0 1.5mm 0; }
+ 
+  .content-left {
+    grid-area: content-left;
+    font-family: 'Inter', sans-serif;
+    font-size: 12pt;
+    font-weight: 400;
+    line-height: 1.2;
+    overflow: hidden;
+  }
+ 
+  .content-right {
+    grid-area: content-right;
+    font-family: 'Inter', sans-serif;
+    font-size: 12pt;
+    font-weight: 400;
+    line-height: 1.2;
+    overflow: hidden;
+  }
+ 
+  .info-block {
+    margin-bottom: 3mm;
+    border-left: 2px solid #c2b723;
+    padding-left: 2.5mm;
+  }
+ 
+  .info-block h3 {
+    color: #c2b723;
+    font-weight: 700;
+    font-size: 12pt;
+    margin: 0 0 1mm 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3pt;
+  }
+ 
+  .info-block p {
+    margin: 0;
+    font-size: 10pt;
+    line-height: 1.1;
+  }
+ 
+  .footer-contact {
+    grid-area: footer;
+    color:#c2b723;
+    font-family: 'Inter', sans-serif;
+    font-weight:900;
+    text-align:center;
+    font-size:9pt;
+    line-height: 1.3;
+    margin-top: auto;
+    padding: 2mm 0;
+  }
+ 
+  .call-to-action {
+    grid-area: cta;
+    background: #c2b723;
+    color: #fff;
+    padding: 4mm;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    margin: 2mm 0;
+  }
+ 
+  .call-to-action h3 {
+    font-size: 12pt;
+    font-weight: 900;
+    margin: 0 0 2mm 0;
+    letter-spacing: 0.3pt;
+  }
+ 
+  .call-to-action p {
+    font-size: 9pt;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.3;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<section class="page p1">
+  <div class="header">
+    <img src="https://talland-webassets.nl/themes/custom/talland/logo.svg" alt="Talland College" class="logo">
+  </div>
+
+  <div class="cover">
+    <div class="top-image">
+      <img src="https://lh3.googleusercontent.com/d/1VOh6SpiYliTN2qX1jn8n8GGUM1OhDH5h" alt="Top Image">
+    </div>      
+    <div class="middle-image">
+      <img src="https://lh3.googleusercontent.com/d/1QavNjv8eSCumz96JE2gMvqrwgSKKpOpz" alt="Middle Image">
+    </div>
+    <div class="lowest-image">
+      <img src="https://lh3.googleusercontent.com/d/1Er6KtDRJnBZsi7B2FnmxIXW2vW6vNrur" alt="Lowest Image">
+    </div>
+  </div>
+
+  <div class="title">Haarstylist dame</div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page p2">
+  <div class="header-info">
+    <div class="header-left">MBO / BOL & BBL</div>
+    <div class="header-center">Niv 3</div>
+    <div class="header-right">2-3 jaar</div>
+  </div>
+ 
+  <h1 class="main-title">Haarstylist dame</h1>
+ 
+  <div class="main-description">
+    <p>Ben je creatief en gek op uiterlijke verzorging? Bij de opleiding Haarstylist dame leer je alles wat je nodig hebt om een echte specialist te worden in dameskapsels. Je leert knippen, kleuren, stylen en omvormen. Tijdens de opleiding werk je veel met mensen en leer je klanten vriendelijk en duidelijk te adviseren.</p>
+  </div>
+ 
+  <div class="content-left">
+    <h3>Wat leer je?</h3>
+    <ul style="margin: 0; padding-left: 4mm; font-size: 10pt; line-height: 1.3;">
+      <li>Knippen, kleuren, permanenten, föhnen en stylen</li>
+      <li>Advies geven over kapsels en haarverzorgingsproducten</li>
+      <li>Technieken zoals coupe knippen, stylen en kleuren</li>
+      <li>Omgaan met klanten en klantgerichte instelling</li>
+      <li>Algemene vakken zoals Nederlands, rekenen en burgerschap</li>
+    </ul>
+  </div>
+ 
+  <div class="content-right">
+    <div class="info-block">
+      <h3>Praktische informatie</h3>
+      <p><strong>Locaties:</strong> Heerhugowaard (BOL & BBL), Purmerend (BOL & BBL), Zaandam (BOL)<br>
+      <strong>Startperiode:</strong> Augustus<br>
+      <strong>Leerweg:</strong> BOL & BBL<br>
+      <strong>Crebo:</strong> 25642</p>
+    </div>
+   
+    <div class="info-block">
+      <h3>Talenten</h3>
+      <p>Klantvriendelijk, creatief, communicatief, zorgvuldig, zelfstandig</p>
+    </div>
+   
+    <div class="info-block">
+      <h3>Aanmelden</h3>
+      <p>Meld je nu aan!</p>
+    </div>
+  </div>
+ 
+  <div class="call-to-action">
+    <h3>Meld je nu aan!</h3>
+    <p>Ontdek jouw avontuur in de wereld van haarstyling. Schrijf je vandaag nog in voor de opleiding Haarstylist dame!</p>
+  </div>
+ 
+  <div class="footer-contact">
+    MEER INFORMATIE?<br>
+    Marianne Hensen - <a href="mailto:m.hensen@talland.nl">m.hensen@talland.nl</a><br>
+    Rianne van Wijngaarden - <a href="mailto:r.vanwijngaarden@talland.nl">r.vanwijngaarden@talland.nl</a><br>
+    Team Advies & Begeleiding Zaandam - <a href="tel:0756819001">075 681 9001</a>
+  </div>
+</section>
+
+</body>
+</html>
