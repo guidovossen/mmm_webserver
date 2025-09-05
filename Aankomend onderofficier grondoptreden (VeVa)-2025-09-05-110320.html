@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<title>Aankomend onderofficier grondoptreden (VeVa)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A5;
+    margin: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  @media print {
+    * {
+      box-sizing: border-box !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body { margin: 0 !important; padding: 0 !important; }
+    html { margin: 0 !important; padding: 0 !important; }
+    .page {
+      page-break-after: always !important;
+      page-break-inside: avoid !important;
+      break-after: page !important;
+      break-inside: avoid !important;
+      margin: 0 !important;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { font-family: 'Inter', Helvetica, Arial, sans-serif; color:#000; margin: 0; padding: 0; }
+  .page {
+    page-break-after: always;
+    page-break-inside: avoid;
+    width: 148mm;
+    height: 210mm;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+  .page:last-child {
+    page-break-after: avoid;
+  }
+  .p1 {
+    background:#20828d; /* Teal color for defense and safety theme */
+    color:#fff;
+    height: 210mm;
+    width: 148mm;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0.5mm 6mm 6mm 6mm;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header"
+      "cover"
+      "title";
+    gap: 5mm;
+    margin: 0;
+  }
+  .header {
+    grid-area: header;
+    text-align: center;
+    align-self: start;
+  }
+  .logo {
+    height: 180pt;
+    width: auto;
+    max-width: 136mm;
+    margin: -5mm 0 0 0;
+    display: block;
+    filter: invert(1);
+  }
+  .dept {
+    font-family: 'Inter', sans-serif;
+    font-weight:900;
+    font-size:30pt;
+    margin-top:0.5mm;
+    letter-spacing:0.8pt;
+    line-height: 0.85;
+    max-width: 136mm; /* Matches Talland width constraint */
+    word-wrap: break-word;
+    hyphens: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+  }
+  .cover {
+    grid-area: cover;
+    position: relative;
+    background: #20828d; /* Match page background instead of white */
+    overflow: visible;
+    align-self: stretch;
+    min-height: 80mm;
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .top-image, .middle-image, .lowest-image {
+    position: absolute;
+    border-radius: 4px;
+  }
+ 
+  /* Add overflow hidden back for middle and lowest images only */
+  .middle-image, .lowest-image {
+    overflow: hidden;
+  }
+ 
+  /* Portrait image - adapts to natural image aspect ratio */
+  .top-image {
+    width: auto;
+    height: auto;
+    max-height: calc(100% - 2mm);
+    top: 0mm;
+    left: 5mm;
+    z-index: 3;
+    max-width: 75mm;
+    overflow: visible;
+    bottom: 2mm;
+  }
+ 
+  /* Square image - equal width and height (50mm x 50mm) */
+  .middle-image {
+    width: 50mm;
+    height: 50mm;
+    top: 50%;
+    left: 60mm;
+    z-index: 2;
+    transform: translateY(-50%);
+  }
+ 
+  /* Landscape image - wider than tall (70mm x 40mm) */
+  .lowest-image {
+    width: 60mm;
+    height: 35mm;
+    top: 45mm;
+    left: 75mm;
+    z-index: 1;
+  }
+ 
+  .cover img { width:100%; height:100%; object-fit:cover; }
+ 
+  /* Maintain native aspect ratio for top image - don't force size */
+  .top-image img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+ 
+  /* Single image fallback */
+  .cover.single-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .title {
+    grid-area: title;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 32pt;
+    font-weight: 900;
+    line-height: 0.95;
+    align-self: start;
+    margin: 0;
+    letter-spacing: -0.8pt;
+    padding: 0 2mm;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* PAGE 2 */
+  .p2 {
+    background:#fff;
+    color:#000;
+    padding: 6mm;
+    height: 210mm;
+    width: 148mm;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    page-break-after: avoid;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto 1fr auto auto;
+    grid-template-areas:
+      "header-left header-right"
+      "title title"
+      "description description"
+      "content-left content-right"
+      "cta cta"
+      "footer footer";
+    gap: 2.5mm;
+    margin: 0;
+  }
+ 
+  .header-info {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-column: 1 / -1;
+    margin-bottom: 3mm;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    color: #20828d;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    min-height: 15pt;
+    max-height: 15pt;
+    position: relative;
+    z-index: 10;
+  }
+ 
+  .header-left {
+    justify-self: start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 12pt !important;
+    line-height: 1 !important;
+  }
+  .header-center {
+    justify-self: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 2mm;
+    flex-shrink: 0;
+    font-size: 12pt !important;
+    line-height: 1 !important;
+  }
+  .header-right {
+    justify-self: end;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 12pt !important;
+    line-height: 1 !important;
+  }
+ 
+  .main-title {
+    grid-area: title;
+    color:#20828d;
+    font-family: 'Inter', sans-serif;
+    font-size:18pt;
+    font-weight:700;
+    margin:0 0 3mm;
+    line-height: 1.1;
+    text-align: center;
+  }
+ 
+  .main-description {
+    grid-area: description;
+    font-family: 'Inter', sans-serif;
+    font-size:10pt;
+    font-weight:400;
+    line-height:1.2;
+    margin-bottom:2mm;
+    overflow: hidden;
+  }
+ 
+  .main-description p { margin: 0 0 1.5mm 0; }
+ 
+  .content-left {
+    grid-area: content-left;
+    font-family: 'Inter', sans-serif;
+    font-size: 12pt;
+    font-weight: 400;
+    line-height: 1.2;
+    overflow: hidden;
+  }
+ 
+  .content-right {
+    grid-area: content-right;
+    font-family: 'Inter', sans-serif;
+    font-size: 12pt;
+    font-weight: 400;
+    line-height: 1.2;
+    overflow: hidden;
+  }
+ 
+  .info-block {
+    margin-bottom: 3mm;
+    border-left: 2px solid #20828d;
+    padding-left: 2.5mm;
+  }
+ 
+  .info-block h3 {
+    color: #20828d;
+    font-weight: 700;
+    font-size: 12pt;
+    margin: 0 0 1mm 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3pt;
+  }
+ 
+  .info-block p {
+    margin: 0;
+    font-size: 10pt;
+    line-height: 1.1;
+  }
+ 
+  .footer-contact {
+    grid-area: footer;
+    color:#20828d;
+    font-family: 'Inter', sans-serif;
+    font-weight:900;
+    text-align:center;
+    font-size:9pt;
+    line-height: 1.3;
+    margin-top: auto;
+    padding: 2mm 0;
+  }
+ 
+  .call-to-action {
+    grid-area: cta;
+    background: #20828d;
+    color: #fff;
+    padding: 4mm;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    margin: 2mm 0;
+  }
+ 
+  .call-to-action h3 {
+    font-size: 12pt;
+    font-weight: 900;
+    margin: 0 0 2mm 0;
+    letter-spacing: 0.3pt;
+  }
+ 
+  .call-to-action p {
+    font-size: 9pt;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.3;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<section class="page p1">
+  <div class="header">
+    <img src="https://talland-webassets.nl/themes/custom/talland/logo.svg" alt="Talland College" class="logo">
+  </div>
+
+  <div class="cover">
+    <div class="top-image">
+      <img src="https://lh3.googleusercontent.com/d/1iJZkfeU4bnxlFZWkjqume1DR9UafLTkW" alt="Top Image">
+    </div>      
+    <div class="middle-image">
+      <img src="https://lh3.googleusercontent.com/d/1DeWGwRIvNuzmet_EazMnr_0hlBbHQ16p" alt="Middle Image">
+    </div>
+    <div class="lowest-image">
+      <img src="https://lh3.googleusercontent.com/d/1VfGimJM2Wk8CCd-gyAjckZ20wkWWl-Eo" alt="Lowest Image">
+    </div>
+  </div>
+
+  <div class="title">Aankomend onderofficier grondoptreden (VeVa)</div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page p2">
+  <div class="header-info">
+    <div class="header-left">MBO / BOL</div>
+    <div class="header-center">Niv 3</div>
+    <div class="header-right">2 jaar</div>
+  </div>
+ 
+  <h1 class="main-title">Aankomend onderofficier grondoptreden (VeVa)</h1>
+ 
+  <div class="main-description">
+    <p>Ben jij iemand die houdt van actie, avontuur en graag het initiatief neemt? Bij deze opleiding leer je alles over veiligheid en defensie, maar dan een stap verder. Als aankomend onderofficier ben je een voorbeeld voor je team, neem je initiatief en zorg je dat de opdrachten worden uitgevoerd. Je krijgt intensieve trainingen in uniform en sport is een groot onderdeel van deze opleiding.</p>
+  </div>
+ 
+  <div class="content-left">
+    <h3>Wat leer je?</h3>
+    <ul style="margin: 0; padding-left: 4mm; font-size: 10pt; line-height: 1.3;">
+      <li>Leidinggeven</li>
+      <li>Militaire basisvaardigheden waaronder beveiliging uitvoeren</li>
+      <li>Instructie en training geven</li>
+      <li>Algemene vakken zoals Nederlands, rekenen en burgerschap</li>
+      <li>Keuzedelen zoals militaire geschiedenis, weerbaarheid en Engels</li>
+    </ul>
+  </div>
+ 
+  <div class="content-right">
+    <div class="info-block">
+      <h3>Praktische informatie</h3>
+      <p><strong>Locatie:</strong> Purmerend (BOL)<br>
+      <strong>Startperiode:</strong> Augustus<br>
+      <strong>Leerweg:</strong> BOL<br>
+      <strong>Crebo:</strong> 25600</p>
+    </div>
+   
+    <div class="info-block">
+      <h3>Talenten</h3>
+      <p>Stressbestendig, instructies opvolgen, stevig in je schoenen staan, samenwerken, zelfstandig, sportief</p>
+    </div>
+   
+    <div class="info-block">
+      <h3>Aanmelden</h3>
+      <p>Kom naar de open dag!</p>
+    </div>
+  </div>
+ 
+  <div class="call-to-action">
+    <h3>Kom naar de open dag!</h3>
+    <p>Ontdek jouw avontuur in de wereld van veiligheid en defensie. Bezoek onze open dag en ervaar het zelf!</p>
+  </div>
+ 
+  <div class="footer-contact">
+    MEER INFORMATIE?<br>
+    Bart van Gompel - <a href="mailto:b.vangompel@talland.nl">b.vangompel@talland.nl</a><br>
+    Talland College - <a href="https://talland.nl">https://talland.nl</a>
+  </div>
+</section>
+
+</body>
+</html>
