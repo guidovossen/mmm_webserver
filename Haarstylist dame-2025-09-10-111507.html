@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<title>Haarstylist dame</title>
+<link rel="preload" href="https://guidovossen.github.io/mmm_webserver/fonts/haffer/HafferXH-Regular.woff2" as="font" crossorigin />
+<link rel="preload" href="https://guidovossen.github.io/mmm_webserver/fonts/haffer/HafferXH-SemiBold.woff2" as="font" crossorigin />
+<link rel="preload" href="https://guidovossen.github.io/mmm_webserver/fonts/haffer/HafferXH-Bold.woff2" as="font" crossorigin />
+<style>
+/* FONTS */
+@font-face{font-family:'Haffer';src:url('https://guidovossen.github.io/mmm_webserver/fonts/haffer/HafferXH-Regular.woff2')format('woff2');font-weight:400;font-display:swap;}
+@font-face{font-family:'Haffer';src:url('https://guidovossen.github.io/mmm_webserver/fonts/haffer/HafferXH-SemiBold.woff2')format('woff2');font-weight:500 600;font-display:swap;}
+@font-face{font-family:'Haffer';src:url('https://guidovossen.github.io/mmm_webserver/fonts/haffer/HafferXH-Bold.woff2')format('woff2');font-weight:700;font-display:swap;}
+/* PRINT */
+@page{size:A5;margin:0;-webkit-print-color-adjust:exact;}
+@media print{*{-webkit-print-color-adjust:exact!important;}}
+/* BASE */
+*{box-sizing:border-box;}
+html,body{font-family:'Haffer',sans-serif;margin:0;padding:0;color:#000;}
+.page{width:148mm;height:210mm;overflow:hidden;page-break-after:always;}
+.page:last-child{page-break-after:avoid;}
+/* P1 COVER */
+.p1{background:#7D29C2;color:#fff;padding:0.5mm 6mm 6mm 6mm;display:grid;grid-template-rows:auto 1fr auto;grid-template-areas:"header""cover""title";gap:5mm;}
+.header{grid-area:header;text-align:center;}
+.logo{height:180pt;width:auto;max-width:136mm;margin:-5mm 0 0 0;filter:invert(1);}
+.cover{grid-area:cover;position:relative;background:#7D29C2;min-height:80mm;display:flex;flex-direction:column;}
+.top-image,.middle-image,.lowest-image{position:absolute;border-radius:4px;}
+.top-image{max-height:calc(100% - 2mm);top:0;left:5mm;z-index:3;max-width:75mm;bottom:2mm;}
+.middle-image{width:50mm;height:50mm;top:50%;left:60mm;z-index:2;transform:translateY(-50%);overflow:hidden;}
+.lowest-image{width:60mm;height:35mm;top:45mm;left:75mm;z-index:1;overflow:hidden;}
+.cover img{width:100%;height:100%;object-fit:cover;}
+.top-image img{object-fit:contain;}
+.title{grid-area:title;text-align:center;font-size:32pt;font-weight:700;line-height:0.95;letter-spacing:-0.8pt;margin:0;padding:0 2mm;}
+/* P2 CONTENT */
+.p2{background:#fff;padding:6mm;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto 1fr auto auto;grid-template-areas:"header-left header-right""title title""description description""content-left content-right""cta cta""footer footer";gap:2.5mm;}
+.header-info{display:grid;grid-template-columns:1fr auto 1fr;grid-column:1/-1;margin-bottom:3mm;font-weight:700;font-size:12pt;color:#7D29C2;align-items:center;white-space:nowrap;overflow:hidden;}
+.header-left{justify-self:start;}
+.header-center{justify-self:center;padding:0 2mm;}
+.header-right{justify-self:end;}
+.main-title{grid-area:title;color:#7D29C2;font-size:24pt;font-weight:700;line-height:0.85;letter-spacing:-1pt;margin:0 0 3mm;text-align:center;}
+.main-description{grid-area:description;font-size:9pt;font-weight:600;line-height:1.2;margin-bottom:2mm;}
+.main-description p{margin:0 0 1.5mm 0;}
+.content-left{grid-area:content-left;font-size:9pt;font-weight:600;line-height:1.2;}
+.content-left h3{font-size:15pt;font-weight:500;line-height:1.1;color:#000;margin:0 0 1mm 0;}
+.content-left ul{margin:0;padding-left:4mm;}
+.content-right{grid-area:content-right;font-size:9pt;font-weight:600;line-height:1.2;}
+.content-right h3{font-size:15pt;font-weight:500;line-height:1.1;color:#000;margin:0 0 1mm 0;}
+.info-block{margin-bottom:3mm;border-left:2px solid #7D29C2;padding-left:2.5mm;}
+.info-block h3{font-size:15pt;font-weight:500;line-height:1.1;color:#000;margin:0 0 1mm 0;}
+.info-block p{margin:0;font-size:9pt;font-weight:600;line-height:1.2;}
+.footer-contact{grid-area:footer;color:#7D29C2;font-size:9pt;font-weight:700;text-align:center;margin-top:auto;padding:2mm 0;}
+.call-to-action{grid-area:cta;background:#7D29C2;color:#fff;padding:4mm;text-align:center;margin:2mm 0;}
+.call-to-action h3{font-size:12pt;font-weight:700;margin:0 0 2mm 0;letter-spacing:0.3pt;}
+.call-to-action p{font-size:9pt;font-weight:400;margin:0;line-height:1.3;}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<section class="page p1">
+<div class="header">
+<img src="https://talland-webassets.nl/themes/custom/talland/logo.svg" alt="Talland College" class="logo">
+</div>
+<div class="cover">
+<div class="top-image"><img src="https://lh3.googleusercontent.com/d/1qLvhEGTyyQB-qmiKTOyd3YlrSHluJpM7" alt="Top Image"></div>
+<div class="middle-image"><img src="https://lh3.googleusercontent.com/d/1VOh6SpiYliTN2qX1jn8n8GGUM1OhDH5h" alt="Middle Image"></div>
+<div class="lowest-image"><img src="https://lh3.googleusercontent.com/d/10RUBkU9DGg6kAV_ltOcHWUScoXwJVb0k" alt="Lowest Image"></div>
+</div>
+<div class="title">Haarstylist dame</div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page p2">
+<div class="header-info">
+<div class="header-left">MBO/BOL</div>
+<div class="header-center">Niv 3</div>
+<div class="header-right">2-3j</div>
+</div>
+<h1 class="main-title">Haarstylist dame</h1>
+<div class="main-description">
+<p>Ben je creatief en gek op uiterlijke verzorging? Bij de opleiding Haarstylist dame leer je alles wat je nodig hebt om een echte specialist te worden in dameskapsels. Je leert knippen, kleuren, stylen en omvormen. Behandelingen voer je zelfstandig uit en je adviseert klanten. Werk veel met mensen, leer vriendelijk en duidelijk omgaan met klanten. Een creatief beroep waar je jezelf blijft ontwikkelen. Meer informatie? Bekijk https://www.talland.nl/mbo/haarstylist-dame</p>
+</div>
+<div class="content-left">
+<h3>Welke talenten heb je nodig?</h3>
+<ul><li>Klantvriendelijk</li><li>Creatief</li><li>Communicatief - sociaal</li><li>Zorgvuldig</li><li>Zelfstandig</li></ul>
+</div>
+<div class="content-right">
+<div class="info-block">
+<h3>Over de opleiding</h3>
+<p>Leerweg BOL & BBL, 2 of 3 jaar, start in augustus. Locaties: Heerhugowaard, Purmerend, Zaandam (BOL vol). Theorie en praktijk, stages bij erkende bedrijven. Keuzevakken voor verbreding en verdieping.</p>
+</div>
+<div class="info-block">
+<h3>Na je opleiding</h3>
+<p>Je kunt zelfstandig behandelingen uitvoeren, klanten adviseren en technieken toepassen zoals stylen, permanenten en kleuren. Mogelijk vervolg: Schoonheidsspecialist niveau 3 of Retailmanager niveau 4.</p>
+</div>
+<div class="info-block">
+<h3>Over het beroep</h3>
+<p>Als haarstylist dame ben je vakkundig, creatief en sociaal. Je voert diverse haarbehandelingen uit en ontmoet steeds nieuwe mensen. Je eigen kapsalon starten is ook mogelijk.</p>
+</div>
+</div>
+<div class="call-to-action">
+<h3>Meer informatie?</h3>
+<p>Bekijk https://www.talland.nl/mbo/haarstylist-dame</p>
+</div>
+<div class="footer-contact">Talland College &bull; www.talland.nl &bull; info@talland.nl</div>
+</section>
+
+</body>
+</html>
